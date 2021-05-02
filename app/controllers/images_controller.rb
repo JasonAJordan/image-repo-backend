@@ -15,15 +15,17 @@ class ImagesController < ApplicationController
     end 
 
     def create
-        #image = Image.create(image_params)
         puts image_params
+        image = Image.create(image_params)
         puts "hello"
-        imageUploaded = Cloudinary::Uploader.upload(params[:imgUrl])
-        puts imageUploaded["url"]
-        puts "testing@@@@@"
-        image_params_new = image_params
-        image_params_new[:imgUrl] = imageUploaded["url"]
-        image = Image.create(image_params_new)
+        puts image
+
+        #imageUploaded = Cloudinary::Uploader.upload(params[:imgUrl])
+        #puts imageUploaded["url"]
+        #puts "testing@@@@@"
+        # image_params_new = image_params
+        # image_params_new[:imgUrl] = imageUploaded["url"]
+        # image = Image.create(image_params_new)
         render json: image, except:[:updated_at, :created_at]
     end 
 
