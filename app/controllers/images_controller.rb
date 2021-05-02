@@ -10,4 +10,21 @@ class ImagesController < ApplicationController
         render json: image
     end 
     
+
+    def new 
+        image = Image.new 
+    end 
+
+    def create
+        image = Image.create(image_params)
+
+        render json: image, except:[:updated_at, :created_at]
+    end 
+
+    private 
+
+    def image_params
+        params.permit(:user_id, :imgUrl, :description)
+    end 
+
 end
