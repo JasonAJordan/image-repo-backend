@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :users#, only: [:show]
   resources :images#, only: [:show]
 
+  get "/publicImages", to: "images#public"
+  
+  
 end

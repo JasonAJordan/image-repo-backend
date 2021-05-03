@@ -3,6 +3,7 @@ class CreateImages < ActiveRecord::Migration[6.1]
     create_table :images do |t|
       t.string :imgUrl
       t.string :description
+      t.boolean :public
       t.belongs_to :user, null: false, foreign_key: true
 
       t.timestamps
