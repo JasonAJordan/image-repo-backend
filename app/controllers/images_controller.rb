@@ -28,6 +28,12 @@ class ImagesController < ApplicationController
         render json: image, except:[:updated_at, :created_at]
     end 
 
+    def destroy 
+        image = Image.find_by(id: params[:id])
+        image.destroy
+        render json: image
+    end 
+
     private 
 
     def image_params
