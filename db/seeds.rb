@@ -10,5 +10,5 @@ imgSeed = "https://res.cloudinary.com/jasonjordan/image/upload/v1613589596/ajxzm
 
 jason = User.create(username: "JasonJordan", password:"1234")
 
-img1 = Image.create(imgUrl: imgSeed, description: "This is a seeded image", user_id: jason.id)
+img1 = Image.create(imgUrl: imgSeed, description: "This is a seeded image", user_id: jason.id, public: true)
 
