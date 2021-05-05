@@ -3,11 +3,10 @@ Rails.application.routes.draw do
 
   #delete this out before final commit
   resources :users#, only: [:show]
-  resources :images#, only: [:show]
+  resources :images, only: [:create, :destroy]
 
   get "/publicImages", to: "images#public"
   
-  # get "/autologin", fo: "user#autologin"
   post "/register", to: "auth#register"
   post "/login", to: "auth#login"
   get "/profile", to: "users#profile"
