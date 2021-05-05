@@ -1,10 +1,11 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :password
+  attributes :id, :username, :password_digest
 
   has_many :images
   
   # attributes :images
 
+  #scraped idea below.
   # def images 
   #   custom_images = []
 
