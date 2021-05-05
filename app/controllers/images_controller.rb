@@ -30,6 +30,7 @@ class ImagesController < ApplicationController
     end 
 
     def create
+
         imageUploaded = Cloudinary::Uploader.upload(params[:imgUrl])
         new_image_params = image_params
         new_image_params[:imgUrl] = imageUploaded["url"]
