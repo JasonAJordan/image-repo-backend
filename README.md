@@ -35,8 +35,9 @@ end
 
 ## JWT Authentication in a nutshell. 
 
-Our new authentication flow for APIs won't involve sending cookies, but we'll
-still need some special token to authenticate our users.
+This app features the use of the gem jwt 
+[Link to thier site](https://jwt.io/)
+
 
 For that token we'll be using JWT.
 
