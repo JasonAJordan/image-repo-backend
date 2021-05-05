@@ -22,18 +22,16 @@ end
 1. Bundle install 
 2. rails db:create db:migrate db:seed
 3. rails start
-
-
 4. Run "npm start" in your console where the frontend is located. 
 
 ## Unit Test 
 
-Tests to check HTTP request are located in the frontend [here](https://github.com/JasonAJordan/image-repo-frontend/blob/cleanup-%26-finalize/src/pages/UnitTests.js) *Note to self this link will change when I do a final merge.
-These test can be also viewed when loading up the frontend of the app. 
+Tests to check HTTP requests are located in the frontend [here](https://github.com/JasonAJordan/image-repo-frontend/blob/cleanup-%26-finalize/src/pages/UnitTests.js) *Note to self this link will change when I do a final merge.
+These test can be also viewed in the app itself.  
 
 ## JWT Authentication in a nutshell. 
 
-This app features the use of the gem jwt 
+This app features the use of the ruby gem jwt. 
 [Link to their site](https://jwt.io/)
 
 Javascript Web Token will create a bearer token for each acount. Upon login the app validates the user's credentials. Then the app gives the token to the client. This token is needed with every request made by the the client as it proves to the server that they are who they claim to be. This token is also being used for the user's local storage cookies to keep them login after a page refersh. 
