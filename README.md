@@ -3,6 +3,10 @@ This is the backend for my Shopify's Fall 2021 Backend Developer Internship code
 
 This app is modeled with Ruby on Rails backend, Reactjs frontend, PostgreSQL as the database, and Cloudinary as the image API. Users can upload images either privatly or publicly and can delete them as well. The app features user authentication with the help of ruby gems bycrpt and jwt. 
 
+## Video-Demo 
+
+[![watch the video](https://i.imgur.com/BxrDCJO.jpeg)](https://www.youtube.com/watch?v=6LLflfBslvk)
+
 
 ##  Setup. 
 
@@ -19,12 +23,12 @@ Cloudinary.config do |config|
 end
 ```
 
-1. Bundle install 
-2. rails db:create db:migrate db:seed
-3. rails start
-4. Run "npm start" in your console where the frontend is located. 
+2. Bundle install 
+3. rails db:create db:migrate db:seed
+4. rails start
+5. Run "npm start" in your console where the frontend is located. 
 
-## Unit Test 
+## Unit Tests
 
 Tests to check HTTP requests are located in the frontend [here](https://github.com/JasonAJordan/image-repo-frontend/blob/cleanup-%26-finalize/src/pages/UnitTests.js) *Note to self this link will change when I do a final merge.
 These test can be also viewed in the app itself.  
@@ -34,8 +38,11 @@ These test can be also viewed in the app itself.
 This app features the use of the ruby gem jwt. 
 [Link to their site](https://jwt.io/)
 
-Javascript Web Token will create a bearer token for each acount. Upon login the app validates the user's credentials. Then the app gives the token to the client. This token is needed with every request made by the the client as it proves to the server that they are who they claim to be. This token is also being used for the user's local storage cookies to keep them login after a page refersh. 
+Javascript Web Token will create a bearer token for each acount. Upon login the app validates the user's credentials. Then the app gives the token to the client. This token is needed with every request made by the the client as it proves to the server that they are who they claim to be. 
 
+For this app, I'm using jwt to authenticate user's posting image files. As well as saving a copy of that token onto the client's local storage cookie to keep them login after a page refersh. See image controller's path create and user controller's path profile for code implementation. 
+
+Example of jwt auth:
 ![jwt auth flow](https://miro.medium.com/max/960/1*l-FS80RhxUgjZOKGgOXnTQ.jpeg)
 
 
