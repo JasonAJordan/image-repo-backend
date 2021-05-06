@@ -1,14 +1,14 @@
 class ImagesController < ApplicationController
 
-    def index
-        images = Image.all 
-        render json: images 
-    end 
+    # def index
+    #     images = Image.all 
+    #     render json: images 
+    # end 
 
-    def show 
-        image = Image.find(params[:id])
-        render json: image
-    end 
+    # def show 
+    #     image = Image.find(params[:id])
+    #     render json: image
+    # end 
 
     def public
         images = Image.select{|image| image[:public] == true}
@@ -30,13 +30,25 @@ class ImagesController < ApplicationController
     end 
 
     def create
-        imageUploaded = Cloudinary::Uploader.upload(params[:imgUrl])
-        new_image_params = image_params
-        new_image_params[:imgUrl] = imageUploaded["url"]
-        image = Image.create(new_image_params)
+        auth_headers = request.headers["Authorization"]
+        token = auth_headers.split.last
 
-        render json: image, except:[:updated_at, :created_at]
+        payload = JWT.decode(token, Rails.application.secrets.secret_key_base, true, { algorthim: 'HS256' })
+        user_id = payload[0]["user_id"]
+        #verifies  the user 
+        if (image_params[:user_id] == user_id.to_s)
+            imageUploaded = Cloudinary::Uploader.upload(params[:imgUrl])
+            new_image_params = image_params
+            new_image_params[:imgUrl] = imageUploaded["url"]
+            image = Image.create(new_image_params)
+    
+            render json: image, except:[:updated_at, :created_at]
+        else 
+            render json: {error: "nice try"}, status: :unauthorized
+        end
+        
     end 
+
 
     def destroy 
         
@@ -53,6 +65,14 @@ class ImagesController < ApplicationController
         render json: image
     end 
 
+    def createdev
+        imageUploaded = Cloudinary::Uploader.upload(params[:imgUrl])
+        new_image_params = image_params
+        new_image_params[:imgUrl] = imageUploaded["url"]
+        image = Image.create(new_image_params)
+
+        render json: image, except:[:updated_at, :created_at]
+    end 
     private 
 
     def image_params

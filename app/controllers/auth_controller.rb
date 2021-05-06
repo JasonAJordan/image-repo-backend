@@ -3,7 +3,7 @@ class AuthController < ApplicationController
   def register
     #create a new user 
     
-    register_params = params.permit(:username, :password)
+    register_params = params.permit(:username, :password, :name)
     
     user = User.create(register_params)
     
