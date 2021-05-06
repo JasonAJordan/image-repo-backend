@@ -5,7 +5,7 @@ This app is modeled with Ruby on Rails backend, Reactjs frontend, PostgreSQL as 
 
 ## Video-Demo 
 
-[![watch the video](https://i.imgur.com/BxrDCJO.jpeg)](https://www.youtube.com/watch?v=6LLflfBslvk)
+[![watch the video](https://i.imgur.com/wUfMHNm.png)](https://www.youtube.com/watch?v=6LLflfBslvk)
 
 
 ##  Setup. 
