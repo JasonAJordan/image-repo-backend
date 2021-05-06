@@ -3,7 +3,7 @@ This is the backend for my Shopify's Fall 2021 Backend Developer Internship code
 
 This app is modeled with Ruby on Rails backend, Reactjs frontend, PostgreSQL as the database, and Cloudinary as the image API. Users can upload images either privatly or publicly and can delete them as well. The app features user authentication with the help of ruby gems bycrpt and jwt. 
 
-[Link to the Frontend Link](https://github.com/JasonAJordan/image-repo-frontend)
+[Link to the Frontend](https://github.com/JasonAJordan/image-repo-frontend)
 
 ## Video-Demo 
 
